@@ -95,6 +95,7 @@ void QtImageResizer::on_buttonResize_clicked()
         QDir sourceDir(sourceDirString.toUtf8());
         if (!sourceDir.exists()){
           qCritical("Your Source Directory has to exist!");
+          break;
         }
         // append all sources for info displaying later
         allSources += sourceDirString;
