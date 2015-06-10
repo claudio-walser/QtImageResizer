@@ -158,7 +158,7 @@ void QtImageResizer::on_buttonResize_clicked()
             }
         }
     }
-    //msgBox.close();
+    ui->statusBar->showMessage("image processing done");
     // display information
     QMessageBox::information(
         this,
@@ -179,6 +179,7 @@ void QtImageResizer::on_buttonResize_clicked()
             "Höhe Klein: " + ui->lineEditHeightSmall->text().toUtf8() + "\n"
         )
     );
+    ui->statusBar->showMessage("");
 }
 
 void QtImageResizer::on_buttonTarget_clicked()
