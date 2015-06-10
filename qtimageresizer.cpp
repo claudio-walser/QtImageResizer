@@ -43,6 +43,7 @@ void QtImageResizer::on_buttonSourceRemove_clicked()
 
 void QtImageResizer::on_buttonResize_clicked()
 {
+    ui->statusBar->showMessage("");
     bool hasError = false;
     QString message;
     // do some checks first
@@ -80,9 +81,11 @@ void QtImageResizer::on_buttonResize_clicked()
         msgBox.setText(message);
         msgBox.exec();
 
+        ui->statusBar->showMessage("Fehler sind aufgetreten!");
         return;
     }
 
+    ui->statusBar->showMessage("start processing images");
 
     // start real processing now
     QString allSources;
@@ -124,6 +127,7 @@ void QtImageResizer::on_buttonResize_clicked()
 
             // if source file exists
             if (f.isFile()){
+                ui->statusBar->showMessage("processing image: " + f.absoluteFilePath().toUtf8());
                 QImage image;
                 // if image loadable
                 if(image.load(f.absoluteFilePath().toUtf8())) {
@@ -153,7 +157,7 @@ void QtImageResizer::on_buttonResize_clicked()
             }
         }
     }
-
+    //msgBox.close();
     // display information
     QMessageBox::information(
         this,

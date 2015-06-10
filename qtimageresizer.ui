@@ -19,8 +19,12 @@
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
        <widget class="QLabel" name="labelSource">
+        <property name="styleSheet">
+         <string notr="true">font-size: 20px;
+font-weight: bold;</string>
+        </property>
         <property name="text">
-         <string>Quelldaten</string>
+         <string>Quellverzeichnisse</string>
         </property>
        </widget>
       </item>
@@ -30,6 +34,10 @@
          <layout class="QHBoxLayout" name="layoutSourceButtons">
           <item>
            <widget class="QPushButton" name="buttonSourceAdd">
+            <property name="styleSheet">
+             <string notr="true">background-color: #5BB75B;
+color: #FFF;</string>
+            </property>
             <property name="text">
              <string>Quelle hinzufügen</string>
             </property>
@@ -37,6 +45,10 @@
           </item>
           <item>
            <widget class="QPushButton" name="buttonSourceRemove">
+            <property name="styleSheet">
+             <string notr="true">background-color: #BD362F;
+color: #FFF;</string>
+            </property>
             <property name="text">
              <string>Quelle entfernen</string>
             </property>
@@ -71,6 +83,10 @@
       </item>
       <item>
        <widget class="QLabel" name="labelTarget">
+        <property name="styleSheet">
+         <string notr="true">font-size: 20px;
+font-weight: bold;</string>
+        </property>
         <property name="text">
          <string>Zielverzeichnis</string>
         </property>
@@ -83,6 +99,10 @@
         </item>
         <item row="0" column="1">
          <widget class="QPushButton" name="buttonTarget">
+          <property name="styleSheet">
+           <string notr="true">background-color: #5BB75B;
+color: #FFF;</string>
+          </property>
           <property name="text">
            <string>Zielverzeichnis wählen</string>
           </property>
@@ -109,6 +129,10 @@
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
            <widget class="QLabel" name="labelScaleLarge">
+            <property name="styleSheet">
+             <string notr="true">font-size: 20px;
+font-weight: bold;</string>
+            </property>
             <property name="text">
              <string>Skalierung - Gross</string>
             </property>
@@ -166,6 +190,10 @@
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="QLabel" name="labelScaleSmall">
+            <property name="styleSheet">
+             <string notr="true">font-size: 20px;
+font-weight: bold;</string>
+            </property>
             <property name="text">
              <string>Skalierung - Klein</string>
             </property>
@@ -238,8 +266,15 @@
        <layout class="QHBoxLayout" name="layoutWindowActions">
         <item>
          <widget class="QPushButton" name="buttonResize">
+          <property name="styleSheet">
+           <string notr="true">background-color: #006DCC;
+color: #FFF;
+font-weight: bold;
+font-size: 30px;
+margin-top: 30px;</string>
+          </property>
           <property name="text">
-           <string>resize</string>
+           <string>los</string>
           </property>
          </widget>
         </item>
