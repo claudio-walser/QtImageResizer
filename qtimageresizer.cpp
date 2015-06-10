@@ -40,6 +40,48 @@ void QtImageResizer::on_buttonSourceRemove_clicked()
 
 void QtImageResizer::on_buttonResize_clicked()
 {
+    bool hasError = false;
+    QString message;
+    // do some checks first
+    if (listSources.length() == 0) {
+        hasError = true;
+        message += "\n- Es muss mindestens ein Quellverzeichnis angegeben werden.";
+    }
+
+    if (ui->lineEditTarget->text().length() == 0) {
+        hasError = true;
+        message += "\n- Es muss ein Zielverzeichnis angegeben werden.";
+    }
+
+    if (
+        ui->lineEditDirectoryLarge->text().length() == 0 ||
+        ui->lineEditHeightLarge->text().length() == 0 ||
+        ui->lineEditWidthLarge->text().length() == 0
+    ) {
+        hasError = true;
+        message += "\n- Die Angaben für 'Skalierung - Gross' müssen eingetragen werden";
+    }
+
+    if (
+        ui->lineEditDirectorySmall->text().length() == 0 ||
+        ui->lineEditHeightSmall->text().length() == 0 ||
+        ui->lineEditWidthSmall->text().length() == 0
+    ) {
+        hasError = true;
+        message += "\n- Die Angaben für 'Skalierung - Klein' müssen eingetragen werden";
+    }
+
+    if (hasError == true) {
+        QMessageBox msgBox;
+        msgBox.setWindowTitle("Fehler in der Eingabe");
+        msgBox.setText(message);
+        msgBox.exec();
+
+        return;
+    }
+
+
+    // start real processing now
     QString allSources;
 
     // loop sources list
