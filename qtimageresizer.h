@@ -23,6 +23,8 @@ private slots:
 
     void on_buttonResize_clicked();
 
+    void on_buttonTarget_clicked();
+
 private:
     Ui::QtImageResizer *ui;
     QStringList listSources;
