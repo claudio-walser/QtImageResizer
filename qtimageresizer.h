@@ -2,6 +2,7 @@
 #define QTIMAGERESIZER_H
 
 #include <QMainWindow>
+#include <QStringListModel>
 
 namespace Ui {
 class QtImageResizer;
@@ -16,14 +17,16 @@ public:
     ~QtImageResizer();
 
 private slots:
-    void on_pushButton_2_clicked();
+    void on_buttonSourceAdd_clicked();
 
-    void on_pushButton_3_clicked();
+    void on_buttonSourceRemove_clicked();
 
-    void on_pushButton_clicked();
+    void on_buttonResize_clicked();
 
 private:
     Ui::QtImageResizer *ui;
+    QStringList listSources;
+    QStringListModel modelSources;
 };
 
 #endif // QTIMAGERESIZER_H
