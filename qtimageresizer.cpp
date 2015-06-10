@@ -83,11 +83,11 @@ void QtImageResizer::on_buttonResize_clicked()
                 // if image loadable
                 if(image.load(f.absoluteFilePath().toUtf8())) {
                     // large scale image
-                    QImage img = image.scaled(ui->lineEditWidthLarge->text().toInt(), ui->lineEditHeightLarge->text().toInt(), Qt::KeepAspectRatio );
+                    QImage img = image.scaled(ui->lineEditWidthLarge->text().toInt(), ui->lineEditHeightLarge->text().toInt(), Qt::KeepAspectRatio, Qt::SmoothTransformation );
                     img.save(targetDir.absolutePath().toUtf8() + "/" + f.fileName().toUtf8());
 
                     // small scale image
-                    QImage imgSmall = image.scaled(ui->lineEditWidthSmall->text().toInt(), ui->lineEditHeightSmall->text().toInt(), Qt::KeepAspectRatio );
+                    QImage imgSmall = image.scaled(ui->lineEditWidthSmall->text().toInt(), ui->lineEditHeightSmall->text().toInt(), Qt::KeepAspectRatio, Qt::SmoothTransformation );
                     imgSmall.save(targetDirSmall.absolutePath().toUtf8() + "/" + f.fileName().toUtf8());
                 } else {
                     qCritical("Failed to load image " + f.absoluteFilePath().toUtf8());
