@@ -22,9 +22,12 @@ QtImageResizer::~QtImageResizer()
 
 void QtImageResizer::on_buttonSourceAdd_clicked()
 {
-    QString directory = QFileDialog::getExistingDirectory(this, tr("Quellverzeichnis wählen"),
-                                                "", // home directory to start from
-                                                QFileDialog::ShowDirsOnly);
+    QString directory = QFileDialog::getExistingDirectory(
+        this,
+        tr("Quellverzeichnis wählen"),
+        "", // home directory to start from
+        QFileDialog::ShowDirsOnly
+    );
     if (!listSources.contains(directory)) {
         listSources.append(directory);
         //modelSources.submit(); //boy, it would just make perfectly sense to me :(
@@ -125,11 +128,24 @@ void QtImageResizer::on_buttonResize_clicked()
                 // if image loadable
                 if(image.load(f.absoluteFilePath().toUtf8())) {
                     // large scale image
-                    QImage img = image.scaled(ui->lineEditWidthLarge->text().toInt(), ui->lineEditHeightLarge->text().toInt(), Qt::KeepAspectRatio, Qt::SmoothTransformation );
+                    QImage img = image.scaled(
+                        ui->lineEditWidthLarge->text().toInt(),
+                        ui->lineEditHeightLarge->text().toInt(),
+                        Qt::KeepAspectRatio,
+                        Qt::SmoothTransformation
+                    );
+
+
+
                     img.save(targetDir.absolutePath().toUtf8() + "/" + f.fileName().toUtf8());
 
                     // small scale image
-                    QImage imgSmall = image.scaled(ui->lineEditWidthSmall->text().toInt(), ui->lineEditHeightSmall->text().toInt(), Qt::KeepAspectRatio, Qt::SmoothTransformation );
+                    QImage imgSmall = image.scaled(
+                        ui->lineEditWidthSmall->text().toInt(),
+                        ui->lineEditHeightSmall->text().toInt(),
+                        Qt::KeepAspectRatio,
+                        Qt::SmoothTransformation
+                    );
                     imgSmall.save(targetDirSmall.absolutePath().toUtf8() + "/" + f.fileName().toUtf8());
                 } else {
                     qCritical("Failed to load image " + f.absoluteFilePath().toUtf8());
